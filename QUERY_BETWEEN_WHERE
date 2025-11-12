@@ -1,0 +1,120 @@
+MariaDB [task]> select * from guru;
++---------+----------+------------------+------------------+
+| id_guru | nama     | mapel            | alamat           |
++---------+----------+------------------+------------------+
+|       1 | Pak Agus | Matematika       | Jl. Mawar 1      |
+|       2 | Bu Rina  | Bahasa Indonesia | Jl. Melati 2     |
+|       3 | Pak Dedi | Fisika           | Jl. Kenanga 3    |
+|       4 | Bu Sinta | Kimia            | Jl. Anggrek 4    |
+|       5 | Pak Rudi | Biologi          | Jl. Dahlia 5     |
+|       6 | Bu Tika  | Sejarah          | Jl. Flamboyan 6  |
+|       7 | Pak Yoga | Geografi         | Jl. Cempaka 7    |
+|       8 | Bu Reni  | Sosiologi        | Jl. Teratai 8    |
+|       9 | Pak Arif | Ekonomi          | Jl. Mawar 9      |
+|      10 | Bu Wati  | Bahasa Inggris   | Jl. Melati 10    |
+|      11 | Pak Toni | TIK              | Jl. Kenanga 11   |
+|      12 | Bu Mita  | Seni Budaya      | Jl. Anggrek 12   |
+|      13 | Pak Eko  | Penjaskes        | Jl. Dahlia 13    |
+|      14 | Bu Dian  | Prakarya         | Jl. Flamboyan 14 |
+|      15 | Pak Iwan | PPKN             | Jl. Cempaka 15   |
++---------+----------+------------------+------------------+
+15 rows in set (0.087 sec)
+
+MariaDB [task]> select * from mapel;
++----------+------------------+---------------+-------+
+| id_mapel | nama_mapel       | jam_pelajaran | ruang |
++----------+------------------+---------------+-------+
+|        1 | Matematika       |             4 | R1    |
+|        2 | Bahasa Indonesia |             3 | R2    |
+|        3 | Fisika           |             4 | R3    |
+|        4 | Kimia            |             3 | R4    |
+|        5 | Biologi          |             3 | R5    |
+|        6 | Sejarah          |             2 | R6    |
+|        7 | Geografi         |             2 | R7    |
+|        8 | Sosiologi        |             2 | R8    |
+|        9 | Ekonomi          |             3 | R9    |
+|       10 | Bahasa Inggris   |             3 | R10   |
+|       11 | TIK              |             2 | Lab1  |
+|       12 | Seni Budaya      |             2 | R11   |
+|       13 | Penjaskes        |             2 | Lap1  |
+|       14 | Prakarya         |             2 | R12   |
+|       15 | PPKN             |             2 | R13   |
++----------+------------------+---------------+-------+
+15 rows in set (0.009 sec)
+
+MariaDB [task]> select * from siswa;
++----------+-------+-------+------+
+| id_siswa | nama  | kelas | umur |
++----------+-------+-------+------+
+|        1 | Andi  | 10A   |   16 |
+|        2 | Budi  | 10A   |   16 |
+|        3 | Citra | 10B   |   15 |
+|        4 | Dewi  | 10B   |   16 |
+|        5 | Eka   | 10C   |   17 |
+|        6 | Fajar | 10C   |   16 |
+|        7 | Gina  | 11A   |   17 |
+|        8 | Hadi  | 11A   |   17 |
+|        9 | Indah | 11B   |   17 |
+|       10 | Joko  | 11B   |   18 |
+|       11 | Kiki  | 11C   |   17 |
+|       12 | Lina  | 11C   |   18 |
+|       13 | Mira  | 12A   |   18 |
+|       14 | Nina  | 12B   |   18 |
+|       15 | Oki   | 12C   |   19 |
++----------+-------+-------+------+
+15 rows in set (0.009 sec)
+
+MariaDB [task]> select * from guru
+    -> where alamat between 'Jl. Anggrek 4' and 'Jl. Flamboyan 10';
++---------+----------+-----------+----------------+
+| id_guru | nama     | mapel     | alamat         |
++---------+----------+-----------+----------------+
+|       4 | Bu Sinta | Kimia     | Jl. Anggrek 4  |
+|       5 | Pak Rudi | Biologi   | Jl. Dahlia 5   |
+|       7 | Pak Yoga | Geografi  | Jl. Cempaka 7  |
+|      13 | Pak Eko  | Penjaskes | Jl. Dahlia 13  |
+|      15 | Pak Iwan | PPKN      | Jl. Cempaka 15 |
++---------+----------+-----------+----------------+
+5 rows in set (0.001 sec)
+
+MariaDB [task]> select * from mapel
+    -> where jam_pelajaran between 2 and 3;
++----------+------------------+---------------+-------+
+| id_mapel | nama_mapel       | jam_pelajaran | ruang |
++----------+------------------+---------------+-------+
+|        2 | Bahasa Indonesia |             3 | R2    |
+|        4 | Kimia            |             3 | R4    |
+|        5 | Biologi          |             3 | R5    |
+|        6 | Sejarah          |             2 | R6    |
+|        7 | Geografi         |             2 | R7    |
+|        8 | Sosiologi        |             2 | R8    |
+|        9 | Ekonomi          |             3 | R9    |
+|       10 | Bahasa Inggris   |             3 | R10   |
+|       11 | TIK              |             2 | Lab1  |
+|       12 | Seni Budaya      |             2 | R11   |
+|       13 | Penjaskes        |             2 | Lap1  |
+|       14 | Prakarya         |             2 | R12   |
+|       15 | PPKN             |             2 | R13   |
++----------+------------------+---------------+-------+
+13 rows in set (0.001 sec)
+
+MariaDB [task]> select * from siswa
+    -> where umur between 16 and 18;
++----------+-------+-------+------+
+| id_siswa | nama  | kelas | umur |
++----------+-------+-------+------+
+|        1 | Andi  | 10A   |   16 |
+|        2 | Budi  | 10A   |   16 |
+|        4 | Dewi  | 10B   |   16 |
+|        5 | Eka   | 10C   |   17 |
+|        6 | Fajar | 10C   |   16 |
+|        7 | Gina  | 11A   |   17 |
+|        8 | Hadi  | 11A   |   17 |
+|        9 | Indah | 11B   |   17 |
+|       10 | Joko  | 11B   |   18 |
+|       11 | Kiki  | 11C   |   17 |
+|       12 | Lina  | 11C   |   18 |
+|       13 | Mira  | 12A   |   18 |
+|       14 | Nina  | 12B   |   18 |
++----------+-------+-------+------+
+13 rows in set (0.001 sec)
